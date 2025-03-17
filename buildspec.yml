@@ -2,8 +2,8 @@ version: 0.2
 
 env:
   parameter-store:
-    DOCKER_REGISTRY_USERNAME: /myapp/docker-credentials/username
-    DOCKER_REGISTRY_PASSWORD: /myapp/docker-credentials/password
+    DOCKER_REGISTRY_USERNAME:  /myapp/docker-credentials/username
+    DOCKER_REGISTRY_PASSWORD:  /myapp/docker-credentials/password
     DOCKER_REGISTRY_URL: /myapp/docker-registry/url
 
 phases:
@@ -36,7 +36,7 @@ phases:
       - echo Pushing the Docker image...
       - docker push $IMAGE_NAME:latest
       - echo Uploading zip file to S3 root location...
-      - aws s3 cp node-todo-app.zip s3://tws-aws-cicd-demo/node-todo-app/ # Upload zip file to the root of the bucket
+      - aws s3 cp node-todo-app.zip s3://tws-aws-cicd-demo1/node-todo-app/ # Upload zip file to the root of the bucket
       - echo Writing image definitions file...
       - printf '{"ImageURI":"%s", "Port":8000}' $IMAGE_NAME:latest > imageDefinitions.json
       - cat imageDefinitions.json
