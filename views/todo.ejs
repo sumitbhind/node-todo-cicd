@@ -1,111 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Todo List APP test</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
-                color: #333;
-                margin: 0;
-                padding: 0;
-            }
+<head>
+    <title>Todo List APP - DevOps CI/CD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-            h1 {
-                background-color: #4CAF50;
-                color: white;
-                margin: 0;
-                padding: 20px;
-                text-align: center;
-            }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-            ul {
-                list-style: none;
-                padding: 0;
-            }
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
 
-            ul li {
-                background: #fff;
-                border: 1px solid #ddd;
-                margin-bottom: 10px;
-                padding: 10px;
-                position: relative;
-            }
+        .header p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
 
-            ul li a {
-                color: #333;
-                text-decoration: none;
-                font-weight: bold;
-            }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
 
-            ul li a:hover {
-                color: #4CAF50;
-            }
+        ul li {
+            background: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+            position: relative;
+        }
 
-            .delete-btn {
-                color: red;
-                position: absolute;
-                right: 10px;
-                top: 10px;
-            }
+        ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-            .edit-btn {
-                color: #FFC107;
-                position: absolute;
-                right: 40px;
-                top: 10px;
-            }
+        ul li a:hover {
+            color: #4CAF50;
+        }
 
-            form {
-                background: #fff;
-                padding: 20px;
-                margin-top: 20px;
-            }
+        .delete-btn {
+            color: red;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
 
-            label {
-                display: block;
-                margin-bottom: 10px;
-            }
+        .edit-btn {
+            color: #FFC107;
+            position: absolute;
+            right: 40px;
+            top: 10px;
+        }
 
-            input[type="text"] {
-                width: 100%;
-                padding: 10px;
-                margin-bottom: 10px;
-                border: 1px solid #ddd;
-            }
+        form {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+        }
 
-            input[type="submit"] {
-                background-color: #4CAF50;
-                color: white;
-                border: none;
-                padding: 10px 20px;
-                cursor: pointer;
-            }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
 
-            input[type="submit"]:hover {
-                background-color: #45a049;
-            }
-        </style>
-    </head>
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+        }
 
-    <body>
-        <h1>Welcome to DevOps CI/CD Pipeline Workshop with Learning "Jenkins"</h1>
-        <ul>
-            <% todolist.forEach(function(todo, index) { %>
-            <li>
-                <a href="/todo/delete/<%= index %>" class="delete-btn">✘</a>
-                <a href="/todo/<%= index %>" class="edit-btn">✎</a>
-                <%- todo %>
-            </li>
-            <% }); %>
-        </ul>
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
 
-        <form action="/todo/add/" method="post">
-            <p>
-                <label for="newtodo">What should I do?</label>
-                <input type="text" name="newtodo" id="newtodo" autofocus />
-                <input type="submit" value="Add" />
-            </p>
-        </form>
-    </body>
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🚀 Welcome to the DevOps CI/CD Pipeline Workshop</h1>
+        <p>Empowering Junoon Batch 8 to master automation using Jenkins!</p>
+    </div>
+
+    <ul>
+        <% todolist.forEach(function(todo, index) { %>
+        <li>
+            <a href="/todo/delete/<%= index %>" class="delete-btn">✘</a>
+            <a href="/todo/<%= index %>" class="edit-btn">✎</a>
+            <%- todo %>
+        </li>
+        <% }); %>
+    </ul>
+
+    <form action="/todo/add/" method="post">
+        <p>
+            <label for="newtodo">What should I do?</label>
+            <input type="text" name="newtodo" id="newtodo" autofocus />
+            <input type="submit" value="Add" />
+        </p>
+    </form>
+
+</body>
 </html>
