@@ -1,0 +1,37 @@
+@Library('Shared-Liabrary') _
+pipeline{
+    agent { label 'Shared-Liabrary' }
+    stages{
+        stage('clone'){
+            steps{
+                code_clone('https://github.com/abhishek26w/node-todo-cicd.git','master')
+                
+            }
+        }
+        
+        stage('build'){
+            steps{
+                docker_build('node-apk','latest')
+            }
+        }
+        
+        stage('Test'){
+            steps{
+                echo "Tested Successfully"
+            }
+        }
+        
+        stage('Push to DockerHUb'){
+            steps{
+                docker_push('DOCKER-USER','node-apk','latest')
+            }
+        }
+        
+        stage('Deploy'){
+            steps{
+               docker_compose()
+               
+            }
+        }
+    }
+}
