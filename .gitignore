@@ -2,3 +2,12 @@
 node_modules/
 deb
 echo
+# Helm-specific
+*.tgz
+charts/
+.tmp/
+
+# General
+.DS_Store
+node_modules/
+.env
